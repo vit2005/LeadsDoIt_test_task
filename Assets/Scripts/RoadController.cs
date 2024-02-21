@@ -17,7 +17,7 @@ public class RoadController : MonoBehaviour
 
     private void Update()
     {
-        transform.position -= Vector3.up * speed * Time.deltaTime;
+        transform.position -= Vector3.up * SpeedController.speed * Time.deltaTime;
         foreach (Transform road in roads )
         {
             if (road.position.y < 0) road.position += shift;
