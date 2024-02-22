@@ -14,7 +14,7 @@ public class SpeedController : MonoBehaviour
     private void Update()
     {
         _speed = Mathf.Clamp(_speed + acceleration * Time.deltaTime, 0f, MAX_SPEED);
-        Debug.Log(_speed);
+        //Debug.Log(_speed);
     }
 
     public void StartHoldingMove()

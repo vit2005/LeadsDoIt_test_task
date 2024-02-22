@@ -6,7 +6,7 @@ public class ShieldGameplayObject : GameplayObject
 {
     public override bool isPositive => true;
 
-    public override ObjectType objectType => ObjectType.Magnet;
+    public override ObjectType objectType => ObjectType.Shield;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
