@@ -8,7 +8,7 @@ public class RoadController : MonoBehaviour
     public float speed;
     [SerializeField] List<Transform> roads = new List<Transform>();
     [SerializeField] Transform initialRoad;
-    private readonly Vector3 shift = new Vector3 (0, 8192, 0);
+    private readonly Vector3 shift = new Vector3 (0, 40, 0);
 
     public void Init()
     {
@@ -17,10 +17,10 @@ public class RoadController : MonoBehaviour
 
     private void Update()
     {
-        transform.position -= Vector3.up * SpeedController.speed * Time.deltaTime;
+        transform.position -= Vector3.up * SpeedController.speed * 0.01f * Time.deltaTime;
         foreach (Transform road in roads )
         {
-            if (road.position.y < 0) road.position += shift;
+            if (road.position.y < -10) road.position += shift;
         }
     }
 }

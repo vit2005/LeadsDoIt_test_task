@@ -9,6 +9,7 @@ public class CountdownGameMode : MonoBehaviour
 
     public IEnumerator StartGameMode()
     {
+        text.text = "";
         yield return new WaitForSeconds(1);
         text.text = "3";
         yield return new WaitForSeconds(1);
