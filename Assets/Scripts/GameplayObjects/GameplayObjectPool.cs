@@ -49,15 +49,16 @@ public class GameplayObjectPool : MonoBehaviour
     private void OnTakeFromPool(GameplayObjectController item)
     {
         bool isRightSide = _spawnRightSide.HasValue ? _spawnRightSide.Value : UnityEngine.Random.Range(0, 2) == 0;
-        _spawnRightSide = null;
         Vector3 pos = isRightSide ? _rightPos : _leftPos;
         item.isRightSide = isRightSide;
         item.transform.position = pos;
+        if (_spawnRightSide.HasValue) item.transform.position += Vector3.up * UnityEngine.Random.Range(1f, 5f);
+        _spawnRightSide = null;
 
         bool isPositive = _spawnPositive.HasValue ? _spawnPositive.Value : UnityEngine.Random.Range(0, 100) < positiveProbability;
-        _spawnPositive = null;
         item.isPositive = isPositive;
         item.Enable();
+        _spawnPositive = null;
 
         //item.transform.Rotate(0f, 0f, UnityEngine.Random.Range(0f, 360f));
         //item.transform.localScale = Vector3.one * UnityEngine.Random.Range(1.8f, 2.2f);
