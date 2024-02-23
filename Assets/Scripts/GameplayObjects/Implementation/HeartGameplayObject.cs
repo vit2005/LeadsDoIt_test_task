@@ -6,10 +6,12 @@ public class HeartGameplayObject : GameplayObject
 {
     public override bool isPositive => false;
 
+    public override bool hideOnTrigger => true;
+
     public override ObjectType objectType => ObjectType.Heart;
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public override void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("HeartGameplayObject");
+        base.OnTriggerEnter2D(collision);
     }
 }

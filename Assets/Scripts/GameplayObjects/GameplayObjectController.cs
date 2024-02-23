@@ -85,7 +85,7 @@ public class GameplayObjectController : MonoBehaviour
     {
         var list = isPositive ? positiveObjects.Where(x => x.objectType == objectType).ToList() :
             negativeObjects.Where(x => x.objectType == objectType).ToList();
-        Debug.Log(objectType.ToString() + "   " + isPositive + "   " + list.Count);
+        //Debug.Log(objectType.ToString() + "   " + isPositive + "   " + list.Count);
         _spawnedObject = list[UnityEngine.Random.Range(0, list.Count)];
         _spawnedObject.Init();
     }

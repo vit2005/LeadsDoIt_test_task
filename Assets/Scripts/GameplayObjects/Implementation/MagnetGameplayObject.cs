@@ -6,10 +6,9 @@ public class MagnetGameplayObject : GameplayObject
 {
     public override bool isPositive => true;
 
+    public override bool hideOnTrigger => true;
+
     public override ObjectType objectType => ObjectType.Magnet;
 
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("MagnetGameplayObject");
-    }
+    public override BuffId? AutoApplyBuffId => BuffId.Magnet;
 }

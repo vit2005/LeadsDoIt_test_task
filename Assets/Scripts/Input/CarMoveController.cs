@@ -9,7 +9,7 @@ public class CarMoveController : MonoBehaviour
     private float horizontalAcceleration = 0;
     private float verticalAcceleration = 0;
     public const float HORIZONTAL_MOVING_SPEED_MULTIPLIER = 10f;
-    public const float VERTICAL_MOVING_SPEED_MULTIPLIER = 5f;
+    public const float VERTICAL_MOVING_SPEED_MULTIPLIER = 1f;
     public const float MAX_LEFT = -0.8f;
     public const float MAX_RIGHT = 0.8f;
     public const float MAX_BOTTOM = 1f;
@@ -65,7 +65,7 @@ public class CarMoveController : MonoBehaviour
 
     public void StartHoldingStop()
     {
-        verticalAcceleration = -VERTICAL_MOVING_SPEED_MULTIPLIER;
+        verticalAcceleration = -VERTICAL_MOVING_SPEED_MULTIPLIER*3f;
     }
 
     public void StopHoldingStop()

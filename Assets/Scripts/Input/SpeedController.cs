@@ -10,10 +10,19 @@ public class SpeedController : MonoBehaviour
     private float acceleration = 0;
     public const float MOVING_SPEED_MULTIPLIER = 1000f;
     public const float MAX_SPEED = 1000f;
+    public const float NITRO_SPEED = 500f;
+    private float _minSpeed = 0;
+    public bool SetNitro
+    {
+        set
+        {
+            _minSpeed = value ? NITRO_SPEED : 0f;
+        }
+    }
 
     private void Update()
     {
-        _speed = Mathf.Clamp(_speed + acceleration * Time.deltaTime, 0f, MAX_SPEED);
+        _speed = Mathf.Clamp(_speed + acceleration * Time.deltaTime, _minSpeed, MAX_SPEED);
         //Debug.Log(_speed);
     }
 
@@ -35,6 +44,11 @@ public class SpeedController : MonoBehaviour
     public void StopHoldingStop()
     {
         acceleration = 0f;
+    }
+
+    public void StartSlow()
+    {
+        _speed /=2f;
     }
 
     public void ForceStop()

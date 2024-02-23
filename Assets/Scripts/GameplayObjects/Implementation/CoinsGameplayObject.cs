@@ -6,10 +6,7 @@ public class CoinsGameplayObject : GameplayObject
 {
     public override bool isPositive => true;
 
-    public override ObjectType objectType => ObjectType.Coins;
+    public override bool hideOnTrigger => false;
 
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("CoinsGameplayObject");
-    }
+    public override ObjectType objectType => ObjectType.Coins;
 }

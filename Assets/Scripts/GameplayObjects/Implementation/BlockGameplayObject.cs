@@ -6,10 +6,12 @@ public class BlockGameplayObject : GameplayObject
 {
     public override bool isPositive => false;
 
+    public override bool hideOnTrigger => false;
+
     public override ObjectType objectType => ObjectType.Block;
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public override void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("BlockGameplayObject");
+        base.OnTriggerEnter2D(collision);
     }
 }

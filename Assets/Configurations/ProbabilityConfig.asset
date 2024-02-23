@@ -31,3 +31,6 @@ MonoBehaviour:
   - type: 4
     isPositive: 1
     probabilty: 5
+  - type: 6
+    isPositive: 1
+    probabilty: 10

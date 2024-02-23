@@ -18,6 +18,9 @@ public class GameController : MonoBehaviour
     public static GameController Instance => _instance;
 
     [SerializeField] CountdownGameMode countdownGameMode;
+    
+    [SerializeField] SpeedController speedController;
+    public SpeedController SpeedController => speedController;
 
     public GameModeId CurrentGameMode = GameModeId.Countdown;
 
