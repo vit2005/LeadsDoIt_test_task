@@ -36,7 +36,7 @@ public class CarBuffs : MonoBehaviour
     public void VanishBuff(BuffId buffId)
     {
         var buff = _buffsDatabase[buffId];
-        if (_enabledBuffs.Contains(buff) && !_buffsToApply.Contains(buff)) _buffsToVanish.Add(buff);
+        if (_enabledBuffs.Contains(buff)) _buffsToVanish.Add(buff);
     }
 
     public void Update()
