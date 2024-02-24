@@ -15,6 +15,7 @@ public class CarHP : MonoBehaviour
         {
             value = Mathf.Clamp01(value);
             barsController.SetHealth = value;
+            _hp = value;
         }
     }
 
@@ -28,13 +29,11 @@ public class CarHP : MonoBehaviour
 
     public void Update()
     {
-        barsController.SetHealth = _hp;
-
         if (isDamaging && !isShielded)
         {
             if (lastDamageTime < Time.time - DAMAGE_TICK_DURATION)
             {
-                _hp -= DAMAGE_TICK_DAMAGE;
+                HP -= DAMAGE_TICK_DAMAGE;
                 lastDamageTime = Time.time;
             }
         }
