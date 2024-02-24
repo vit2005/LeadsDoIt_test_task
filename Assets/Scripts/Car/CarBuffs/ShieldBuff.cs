@@ -12,12 +12,14 @@ public class ShieldBuff : TimerBuff
         base.Enable();
         _buffs.CarHighlight.SetShield = true;
         _buffs.BarsController.EnableShield = true;
+        _buffs.CarHP.isShielded = true;
     }
 
     public override void Disable()
     {
         _buffs.CarHighlight.SetShield = false;
         _buffs.BarsController.EnableShield = false;
+        _buffs.CarHP.isShielded = false;
     }
 
     public override void OnUpdate()

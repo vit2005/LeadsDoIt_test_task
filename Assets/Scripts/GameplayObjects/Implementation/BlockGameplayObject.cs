@@ -13,5 +13,8 @@ public class BlockGameplayObject : GameplayObject
     public override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
+        var carHp = collision.GetComponent<CarHP>();
+        if (carHp.isShielded) collision.GetComponent<CarBuffs>().VanishBuff(BuffId.Shield);
+        else carHp.HP = 0f;
     }
 }

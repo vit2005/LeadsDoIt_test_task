@@ -20,4 +20,15 @@ public class SlowGameplayObject : GameplayObject
         transform.Rotate(0f, 0f, UnityEngine.Random.Range(0f, 360f));
         transform.localScale = Vector3.one * UnityEngine.Random.Range(0.15f, 0.18f);
     }
+
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+        collision.GetComponent<CarHP>().isDamaging = true;
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        collision.GetComponent<CarHP>().isDamaging = false;
+    }
 }

@@ -13,5 +13,6 @@ public class HeartGameplayObject : GameplayObject
     public override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
+        collision.GetComponent<CarHP>().HP += 0.15f;
     }
 }

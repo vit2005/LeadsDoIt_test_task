@@ -757,6 +757,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3a483bd1a9ca284ba741a17fa9eb0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barsController: {fileID: 657725938}
+  isShielded: 0
+  isDamaging: 0
 --- !u!1 &217408929
 GameObject:
   m_ObjectHideFlags: 0
