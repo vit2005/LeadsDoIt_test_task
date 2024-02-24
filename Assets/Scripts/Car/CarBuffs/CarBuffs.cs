@@ -10,6 +10,7 @@ public class CarBuffs : MonoBehaviour
     public SpeedController SpeedController;
     public CarHighlight CarHighlight;
     public CarHP CarHP;
+    public BarsController BarsController;
 
     private Dictionary<BuffId, Buff> _buffsDatabase = new Dictionary<BuffId, Buff>();
     private List<Buff> _enabledBuffs = new List<Buff>();
