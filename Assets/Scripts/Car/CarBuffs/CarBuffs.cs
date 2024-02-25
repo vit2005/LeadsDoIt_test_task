@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarBuffs : MonoBehaviour 
+public class CarBuffs : MonoBehaviour, IUpdatable 
 {
-    private static CarBuffs _instance;
-    public static CarBuffs Instance => _instance;
-
     public SpeedController SpeedController;
     public CarHighlight CarHighlight;
     public CarHP CarHP;
@@ -17,9 +14,8 @@ public class CarBuffs : MonoBehaviour
     private List<Buff> _buffsToApply = new List<Buff>();
     private List<Buff> _buffsToVanish = new List<Buff>();
 
-    public void Awake()
+    public void Init()
     {
-        _instance = this;
         _buffsDatabase.Add(BuffId.Slow, new SlowBuff());
         _buffsDatabase.Add(BuffId.Magnet, new MagnetBuff());
         _buffsDatabase.Add(BuffId.Shield, new ShieldBuff());
@@ -41,7 +37,16 @@ public class CarBuffs : MonoBehaviour
         if (_enabledBuffs.Contains(buff)) _buffsToVanish.Add(buff);
     }
 
-    public void Update()
+    public void VanishAll()
+    {
+        foreach (var buff in _enabledBuffs)
+        {
+            buff.Disable();
+        }
+        _enabledBuffs.Clear();
+    }
+
+    public void OnUpdate()
     {
         foreach (var buff in _buffsToVanish)
         {
@@ -60,5 +65,4 @@ public class CarBuffs : MonoBehaviour
             buff.OnUpdate();
         }
     }
-
 }

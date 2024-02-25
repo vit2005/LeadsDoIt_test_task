@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarHP : MonoBehaviour
+public class CarHP : MonoBehaviour, IUpdatable
 {
     private float _hp = 1;
     public float HP
@@ -16,6 +16,7 @@ public class CarHP : MonoBehaviour
             value = Mathf.Clamp01(value);
             barsController.SetHealth = value;
             _hp = value;
+            if (_hp == 0f) GameController.Instance.SetGameMode(GameModeId.Result);
         }
     }
 
@@ -27,7 +28,7 @@ public class CarHP : MonoBehaviour
     private const float DAMAGE_TICK_DURATION = 1f;
     private const float DAMAGE_TICK_DAMAGE = 0.05f;
 
-    public void Update()
+    public void OnUpdate()
     {
         if (isDamaging && !isShielded)
         {

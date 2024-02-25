@@ -296,7 +296,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cars atlas_0: -3570623845315081189
+      cars atlas_1: 8916967198985664667
+      cars atlas_2: -6478127537268991750
+      cars atlas_3: 1445128445248131575
+      cars atlas_4: 676229311148725637
+      cars atlas_5: 8319380471683529360
+      cars atlas_6: -4768408358896080092
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

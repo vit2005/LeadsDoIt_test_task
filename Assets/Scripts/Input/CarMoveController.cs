@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarMoveController : MonoBehaviour
+public class CarMoveController : MonoBehaviour, IUpdatable
 {
     [SerializeField] Transform car;
 
@@ -15,12 +15,19 @@ public class CarMoveController : MonoBehaviour
     public const float MAX_BOTTOM = 1f;
     public const float MAX_UP = 8f;
 
+    private Vector3 _initialPosition;
+
     public void Init()
     {
-
+        _initialPosition = car.transform.localPosition;
     }
 
-    public void Update()
+    public void Restart()
+    {
+        car.transform.localPosition = _initialPosition;
+    }
+
+    public void OnUpdate()
     {
         var x = car.transform.localPosition.x;
         x += horizontalAcceleration * Time.deltaTime * (SpeedController.speed / 1000f);
@@ -30,7 +37,7 @@ public class CarMoveController : MonoBehaviour
         y += verticalAcceleration * Time.deltaTime;
         y = Mathf.Clamp(y, MAX_BOTTOM, MAX_UP);
 
-        car.transform.localPosition = new Vector3 (x, y, 0);
+        car.transform.localPosition = new Vector3(x, y, 0);
     }
 
     public void LeftStartHolding()
@@ -72,4 +79,5 @@ public class CarMoveController : MonoBehaviour
     {
         verticalAcceleration = 0f;
     }
+
 }

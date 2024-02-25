@@ -7,7 +7,7 @@ public class CoinGameplayObject : MonoBehaviour
     public virtual void OnTriggerEnter2D(Collider2D collision)
     {
         var coins = collision.GetComponent<CarCoins>();
-        if (coins != null) coins.Coins += 10;
+        if (coins != null) coins.Score += 10;
         gameObject.SetActive(false);
     }
 }

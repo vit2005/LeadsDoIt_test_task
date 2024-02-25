@@ -248,7 +248,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      paused atlas_0: -1682255338622627653
+      paused atlas_1: 4603987861741857529
+      paused atlas_2: -6619948839970610913
+      paused atlas_3: 3298050219380420232
+      paused atlas_4: -1305973098508796942
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

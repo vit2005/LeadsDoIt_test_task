@@ -5,19 +5,19 @@ using UnityEngine;
 
 public class CarCoins : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI cointer;
+    [SerializeField] TextMeshProUGUI counter;
 
-    private int _coins = 0;
-    public int Coins
+    private int _score = 0;
+    public int Score
     {
         get
         {
-            return _coins;
+            return _score;
         }
         set
         {
-            cointer.text = "SCORE:\n" + value;
-            _coins = value;
+            counter.text = "SCORE:\n" + value;
+            _score = value;
         }
     }
 }

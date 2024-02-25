@@ -13,6 +13,8 @@ public class GameplayObjectPool : MonoBehaviour
     public IObjectPool<GameplayObjectController> pool;
     public bool spawns = false;
 
+    private List<GameplayObjectController> _activeGameplayObjects = new List<GameplayObjectController>();
+
     private Vector3 _rightPos;
     private Vector3 _leftPos;
 
@@ -25,7 +27,7 @@ public class GameplayObjectPool : MonoBehaviour
     private const int positiveProbability = 60;
 
     // Start is called before the first frame update
-    void Start()
+    public void Init()
     {
         _rightPos = right.position;
         _leftPos = left.position;
@@ -60,15 +62,15 @@ public class GameplayObjectPool : MonoBehaviour
         item.Enable();
         _spawnPositive = null;
 
-        //item.transform.Rotate(0f, 0f, UnityEngine.Random.Range(0f, 360f));
-        //item.transform.localScale = Vector3.one * UnityEngine.Random.Range(1.8f, 2.2f);
         item.gameObject.SetActive(true);
+        _activeGameplayObjects.Add(item);
     }
 
     private void OnReturnedToPool(GameplayObjectController item)
     {
         item.Clear();
         item.gameObject.SetActive(false);
+        _activeGameplayObjects.Remove(item);
     }
 
     private void OnDestroyPoolObject(GameplayObjectController item)
@@ -89,6 +91,14 @@ public class GameplayObjectPool : MonoBehaviour
                 pool.Get();
             }
         }
+    }
 
+    public void Clear()
+    {
+        if (_activeGameplayObjects.Count == 0) return;
+        for (int i = _activeGameplayObjects.Count - 1; i >= 0; i--)
+        {
+            _activeGameplayObjects[i].Clear();
+        }
     }
 }

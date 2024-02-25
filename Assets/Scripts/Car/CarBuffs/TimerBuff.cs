@@ -6,6 +6,7 @@ public abstract class TimerBuff : Buff
 {
     public abstract float time { get; }
     protected float currentTime;
+    protected bool onPause;
 
     public override void Enable()
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedController : MonoBehaviour
+public class SpeedController : MonoBehaviour, IPauseHandler, IUpdatable
 {
     public static float speed => _speed;
     private static float _speed;
@@ -20,14 +20,16 @@ public class SpeedController : MonoBehaviour
         }
     }
 
-    private void Update()
+    float _prePauseSpeed;
+
+    public void OnUpdate()
     {
         _speed = Mathf.Clamp(_speed + acceleration * Time.deltaTime, _minSpeed, MAX_SPEED);
-        //Debug.Log(_speed);
     }
 
     public void StartHoldingMove()
     {
+        if (GameController.Instance.CurrentGameMode != GameModeId.Gameplay) return;
         acceleration = MOVING_SPEED_MULTIPLIER;
     }
 
@@ -53,7 +55,18 @@ public class SpeedController : MonoBehaviour
 
     public void ForceStop()
     {
-        acceleration = -MOVING_SPEED_MULTIPLIER;
         _speed = 0;
     }
+
+    public void Pause()
+    {
+        _prePauseSpeed = _speed;
+        _speed = 0;
+    }
+
+    public void UnPause()
+    {
+        _speed = _prePauseSpeed;
+    }
+
 }
