@@ -14,6 +14,7 @@ public class BlockGameplayObject : GameplayObject
     {
         base.OnTriggerEnter2D(collision);
         var carHp = collision.GetComponent<CarHP>();
+        if (carHp == null) return;
         if (carHp.isShielded) collision.GetComponent<CarBuffs>().VanishBuff(BuffId.Shield);
         else carHp.HP = 0f;
     }

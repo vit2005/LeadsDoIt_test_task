@@ -23,11 +23,13 @@ public class SlowGameplayObject : GameplayObject
     public override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
-        collision.GetComponent<CarHP>().isDamaging = true;
+        var carHP = collision.GetComponent<CarHP>();
+        if (carHP != null) carHP.isDamaging = true;
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        collision.GetComponent<CarHP>().isDamaging = false;
+        var carHP = collision.GetComponent<CarHP>();
+        if (carHP != null) carHP.isDamaging = false;
     }
 }

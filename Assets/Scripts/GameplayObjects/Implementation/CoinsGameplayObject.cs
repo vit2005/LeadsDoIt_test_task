@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CoinsGameplayObject : GameplayObject
 {
-    [SerializeField] List<GameObject> coin;
+    [SerializeField] List<GameObject> coins;
+    private List<Vector3> localPositions = new List<Vector3>();
 
     public override bool isPositive => true;
 
@@ -12,9 +13,19 @@ public class CoinsGameplayObject : GameplayObject
 
     public override ObjectType objectType => ObjectType.Coins;
 
+    public void Awake()
+    {
+        foreach (var coin in coins) localPositions.Add(coin.transform.localPosition);
+    }
+
     public override void Init()
     {
         base.Init();
-        foreach (var coin in coin) { coin.SetActive(true); }
+        for (int i = 0; i < coins.Count; i++)
+        {
+            coins[i].transform.localPosition = localPositions[i];
+            coins[i].SetActive(true);
+        }
     }
+
 }

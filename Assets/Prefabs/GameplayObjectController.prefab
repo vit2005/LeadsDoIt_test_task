@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0b6786eda1ca04ead0da063cc67ecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin:
+  coins:
   - {fileID: 4865271767634826537}
   - {fileID: 5632135976855479401}
   - {fileID: 1338456386549147751}
@@ -67,6 +67,7 @@ GameObject:
   - component: {fileID: 1357108544861366117}
   - component: {fileID: 6169584671370614295}
   - component: {fileID: 2704749828406298808}
+  - component: {fileID: 6900020036503881520}
   m_Layer: 0
   m_Name: Coin (2)
   m_TagString: Untagged
@@ -199,6 +200,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97fed9512666a6459ce57c127ba512b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &6900020036503881520
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338456386549147751}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2224363033820327770
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,6 +383,7 @@ GameObject:
   - component: {fileID: 7628987476238241459}
   - component: {fileID: 1754465600372798616}
   - component: {fileID: 1534580857258543396}
+  - component: {fileID: 6461697923764459775}
   m_Layer: 0
   m_Name: Coin (3)
   m_TagString: Untagged
@@ -487,6 +516,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97fed9512666a6459ce57c127ba512b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &6461697923764459775
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2773638556446756358}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &3049981627195908345
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,6 +910,7 @@ GameObject:
   - component: {fileID: 5087422705531623192}
   - component: {fileID: 1768370944761102559}
   - component: {fileID: 8888944562591199448}
+  - component: {fileID: 8588786426189146347}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -986,6 +1043,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97fed9512666a6459ce57c127ba512b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &8588786426189146347
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4865271767634826537}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5176541664324103001
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,6 +1226,7 @@ GameObject:
   - component: {fileID: 405939005768616942}
   - component: {fileID: 2597397585585591753}
   - component: {fileID: 4144806893219965965}
+  - component: {fileID: 3077153666128956873}
   m_Layer: 0
   m_Name: Coin (1)
   m_TagString: Untagged
@@ -1274,6 +1359,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97fed9512666a6459ce57c127ba512b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &3077153666128956873
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5632135976855479401}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6325554060665011719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1286,6 +1398,7 @@ GameObject:
   - component: {fileID: 4198440053205163058}
   - component: {fileID: 7440149574969509144}
   - component: {fileID: 5720801447151266313}
+  - component: {fileID: 9120081943390330640}
   m_Layer: 0
   m_Name: Coin (4)
   m_TagString: Untagged
@@ -1418,6 +1531,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97fed9512666a6459ce57c127ba512b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &9120081943390330640
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6325554060665011719}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6873917220423108312
 GameObject:
   m_ObjectHideFlags: 0

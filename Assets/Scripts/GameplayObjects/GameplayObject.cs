@@ -36,8 +36,8 @@ public abstract class GameplayObject : MonoBehaviour
     public virtual void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(this.GetType().ToString());
-        if (hideOnTrigger) gameObject.SetActive(false);
         CarBuffs buffs = collision.GetComponent<CarBuffs>();
+        if (hideOnTrigger && buffs != null) gameObject.SetActive(false);
         if (buffs != null && AutoApplyBuffId.HasValue) buffs.ApplyBuff(AutoApplyBuffId.Value);
     }
 }

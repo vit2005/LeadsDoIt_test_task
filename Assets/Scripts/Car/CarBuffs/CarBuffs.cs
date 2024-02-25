@@ -8,6 +8,7 @@ public class CarBuffs : MonoBehaviour, IUpdatable
     public CarHighlight CarHighlight;
     public CarHP CarHP;
     public BarsController BarsController;
+    public CarMagnet CarMagnet;
 
     private Dictionary<BuffId, Buff> _buffsDatabase = new Dictionary<BuffId, Buff>();
     private List<Buff> _enabledBuffs = new List<Buff>();
