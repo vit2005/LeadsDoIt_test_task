@@ -21,16 +21,16 @@ MonoBehaviour:
     probabilty: 30
   - type: 2
     isPositive: 1
-    probabilty: 50
+    probabilty: 65
   - type: 3
     isPositive: 1
-    probabilty: 30
+    probabilty: 20
   - type: 5
     isPositive: 1
-    probabilty: 15
+    probabilty: 5
   - type: 4
     isPositive: 1
     probabilty: 5
   - type: 6
     isPositive: 1
-    probabilty: 10
+    probabilty: 5

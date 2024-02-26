@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class SpeedController : MonoBehaviour, IPauseHandler, IUpdatable
@@ -7,16 +8,21 @@ public class SpeedController : MonoBehaviour, IPauseHandler, IUpdatable
     public static float speed => _speed;
     private static float _speed;
 
+    [SerializeField] TextMeshProUGUI _speedText;
+
     private float acceleration = 0;
     public const float MOVING_SPEED_MULTIPLIER = 1000f;
     public const float MAX_SPEED = 1000f;
-    public const float NITRO_SPEED = 800f;
+    public const float NITRO_SPEED = 500f;
     private float _minSpeed = 0;
+    private float _maxSpeed = MAX_SPEED;
     public bool SetNitro
     {
         set
         {
             _minSpeed = value ? NITRO_SPEED : 0f;
+            _maxSpeed = value ? NITRO_SPEED + MAX_SPEED : MAX_SPEED;
+            _speedText.color = value ? Color.blue : Color.white;
         }
     }
 
@@ -24,7 +30,8 @@ public class SpeedController : MonoBehaviour, IPauseHandler, IUpdatable
 
     public void OnUpdate()
     {
-        _speed = Mathf.Clamp(_speed + acceleration * Time.deltaTime, _minSpeed, MAX_SPEED);
+        _speed = Mathf.Clamp(_speed + acceleration * Time.deltaTime, _minSpeed, _maxSpeed);
+        _speedText.text = (Mathf.RoundToInt(speed / 5f)).ToString();
     }
 
     public void StartHoldingMove()
@@ -56,6 +63,7 @@ public class SpeedController : MonoBehaviour, IPauseHandler, IUpdatable
     public void ForceStop()
     {
         _speed = 0;
+        _speedText.text = "0";
     }
 
     public void Pause()

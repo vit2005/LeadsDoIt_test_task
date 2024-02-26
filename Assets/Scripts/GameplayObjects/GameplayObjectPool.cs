@@ -24,7 +24,7 @@ public class GameplayObjectPool : MonoBehaviour
     private bool? _spawnRightSide = null;
     private bool? _spawnPositive = null;
 
-    private const int positiveProbability = 60;
+    private const int POSITIVE_PROBABILITY = 40;
 
     // Start is called before the first frame update
     public void Init()
@@ -57,7 +57,7 @@ public class GameplayObjectPool : MonoBehaviour
         if (_spawnRightSide.HasValue) item.transform.position += Vector3.up * UnityEngine.Random.Range(1f, 5f);
         _spawnRightSide = null;
 
-        bool isPositive = _spawnPositive.HasValue ? _spawnPositive.Value : UnityEngine.Random.Range(0, 100) < positiveProbability;
+        bool isPositive = _spawnPositive.HasValue ? _spawnPositive.Value : UnityEngine.Random.Range(0, 100) < POSITIVE_PROBABILITY;
         item.isPositive = isPositive;
         item.Enable();
         _spawnPositive = null;
