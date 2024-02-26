@@ -22,7 +22,7 @@ public class SpeedController : MonoBehaviour, IPauseHandler, IUpdatable
         {
             _minSpeed = value ? NITRO_SPEED : 0f;
             _maxSpeed = value ? NITRO_SPEED + MAX_SPEED : MAX_SPEED;
-            _speedText.color = value ? Color.blue : Color.white;
+            _speedText.color = value ? Color.cyan : Color.white;
         }
     }
 

@@ -42,26 +42,29 @@ public class CarMoveController : MonoBehaviour, IUpdatable
 
     public void LeftStartHolding()
     {
+        if (GameController.Instance.CurrentGameMode != GameModeId.Gameplay) return;
         horizontalAcceleration = -HORIZONTAL_MOVING_SPEED_MULTIPLIER;
     }
 
     public void LeftStopHolding()
     {
-        horizontalAcceleration = 0f;
+        if (horizontalAcceleration < 0) horizontalAcceleration = 0f;
     }
 
     public void RightStartHolding()
     {
+        if (GameController.Instance.CurrentGameMode != GameModeId.Gameplay) return;
         horizontalAcceleration = HORIZONTAL_MOVING_SPEED_MULTIPLIER;
     }
 
     public void RightStopHolding()
     {
-        horizontalAcceleration = 0f;
+        if (horizontalAcceleration > 0) horizontalAcceleration = 0f;
     }
 
     public void StartHoldingMove()
     {
+        if (GameController.Instance.CurrentGameMode != GameModeId.Gameplay) return;
         verticalAcceleration = VERTICAL_MOVING_SPEED_MULTIPLIER;
     }
 
@@ -72,6 +75,7 @@ public class CarMoveController : MonoBehaviour, IUpdatable
 
     public void StartHoldingStop()
     {
+        if (GameController.Instance.CurrentGameMode != GameModeId.Gameplay) return;
         verticalAcceleration = -VERTICAL_MOVING_SPEED_MULTIPLIER*3f;
     }
 

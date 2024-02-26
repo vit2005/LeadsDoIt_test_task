@@ -32,6 +32,8 @@ public class GameController : MonoBehaviour
     [SerializeField] CarBuffs carBuffs;
     [SerializeField] CarHP carHP;
     [SerializeField] GameplayObjectPool pool;
+    [SerializeField] EnemyController enemyController;
+
     public SpeedController SpeedController => speedController;
 
     private GameModeId _currentGameMode = GameModeId.Countdown;
@@ -55,11 +57,13 @@ public class GameController : MonoBehaviour
 
         carBuffs.Init();
         pool.Init();
+        enemyController.Init();
 
         _gameplayUpdatables.Add(speedController);
         _gameplayUpdatables.Add(carMoveController);
         _gameplayUpdatables.Add(carBuffs);
         _gameplayUpdatables.Add(carHP);
+        _gameplayUpdatables.Add(enemyController);
 
         SetGameMode(GameModeId.Countdown);
     }

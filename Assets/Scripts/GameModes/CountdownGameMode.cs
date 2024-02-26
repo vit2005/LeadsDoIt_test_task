@@ -12,6 +12,7 @@ public class CountdownGameMode : MonoBehaviour, IGameMode
     [SerializeField] CarHP carHp;
     [SerializeField] CarBuffs buffs;
     [SerializeField] GameplayObjectPool pool;
+    [SerializeField] EnemyController enemyController;
 
     public void Init()
     {
@@ -30,6 +31,7 @@ public class CountdownGameMode : MonoBehaviour, IGameMode
         carMove.Restart();
         buffs.VanishAll();
         pool.Clear();
+        enemyController.Restart();
 
         StartCoroutine(StartGameMode());
     }
