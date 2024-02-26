@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarBuffs : MonoBehaviour, IUpdatable 
+public class CarBuffs : MonoBehaviour, IUpdatable
 {
     public SpeedController SpeedController;
     public CarHighlight CarHighlight;

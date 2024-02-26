@@ -1,14 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
 public class GameplayObjectPool : MonoBehaviour
 {
-    [SerializeField] Transform GameplayObjectControllerPrefab;
-    [SerializeField] Transform parent;
-    [SerializeField] Transform left;
-    [SerializeField] Transform right;
+    [SerializeField] private Transform gameplayObjectControllerPrefab;
+    [SerializeField] private Transform parent;
+    [SerializeField] private Transform left;
+    [SerializeField] private Transform right;
 
     public IObjectPool<GameplayObjectController> pool;
     public bool spawns = false;
@@ -18,13 +17,13 @@ public class GameplayObjectPool : MonoBehaviour
     private Vector3 _rightPos;
     private Vector3 _leftPos;
 
-    private const float SPAWN_TIME = 800f;
     private float _nextSpawnTime = 0f;
     private float _currentTime = 0f;
     private bool? _spawnRightSide = null;
     private bool? _spawnPositive = null;
 
     private const int POSITIVE_PROBABILITY = 40;
+    private const float SPAWN_TIME = 800f;
 
     // Start is called before the first frame update
     public void Init()
@@ -42,7 +41,7 @@ public class GameplayObjectPool : MonoBehaviour
 
     private GameplayObjectController CreatePooledItem()
     {
-        var gameplayObject = Instantiate(GameplayObjectControllerPrefab, parent).GetComponent<GameplayObjectController>();
+        var gameplayObject = Instantiate(gameplayObjectControllerPrefab, parent).GetComponent<GameplayObjectController>();
         gameplayObject.Init((GameplayObjectController b) => { pool.Release(b); });
         gameplayObject.gameObject.SetActive(false);
         return gameplayObject;

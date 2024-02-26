@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class TimerBuff : Buff
 {
     public abstract float time { get; }
+
     protected float currentTime;
     protected bool onPause;
 

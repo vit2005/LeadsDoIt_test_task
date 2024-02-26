@@ -1,25 +1,33 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class GameplayObjectController : MonoBehaviour
 {
-    [SerializeField] ProbabilityConfig probabilityConfig;
-    [SerializeField] List<GameplayObject> negativeObjects = new List<GameplayObject>();
-    [SerializeField] List<GameplayObject> positiveObjects = new List<GameplayObject>();
-
-    private GameplayObject _spawnedObject;
+    public bool isPositive;
+    public bool isRightSide;
 
     private const float SPEED_MULTIPLIER = 0.01f;
 
     private Action<GameplayObjectController> _release;
-    public bool isRightSide;
-    public bool isPositive;
-
+    private GameplayObject _spawnedObject;
     private int maxNegative;
     private int maxPositive;
+
+    [SerializeField] private List<GameplayObject> negativeObjects = new List<GameplayObject>();
+    [SerializeField] private List<GameplayObject> positiveObjects = new List<GameplayObject>();
+    [SerializeField] private ProbabilityConfig probabilityConfig;
+
+    public void Clear()
+    {
+        _spawnedObject?.Clear();
+    }
+
+    public void Enable()
+    {
+        SetSpawnedObject(GetObjectType());
+    }
 
     public void Init(Action<GameplayObjectController> release)
     {
@@ -35,9 +43,13 @@ public class GameplayObjectController : MonoBehaviour
         foreach (GameplayObject obj in positiveObjects) { obj.gameObject.SetActive(false); };
     }
 
-    public void Enable()
+    public void Update()
     {
-        SetSpawnedObject(GetObjectType());
+        transform.position -= Vector3.up * SpeedController.speed * SPEED_MULTIPLIER * Time.deltaTime;
+        if (transform.position.y < -1f)
+        {
+            _release.Invoke(this);
+        }
     }
 
     private ObjectType GetObjectType()
@@ -88,19 +100,5 @@ public class GameplayObjectController : MonoBehaviour
         //Debug.Log(objectType.ToString() + "   " + isPositive + "   " + list.Count);
         _spawnedObject = list[UnityEngine.Random.Range(0, list.Count)];
         _spawnedObject.Init();
-    }
-
-    public void Update()
-    {
-        transform.position -= Vector3.up * SpeedController.speed * SPEED_MULTIPLIER * Time.deltaTime;
-        if (transform.position.y < -1f)
-        {
-            _release.Invoke(this);
-        }
-    }
-
-    public void Clear()
-    {
-        _spawnedObject?.Clear();
     }
 }

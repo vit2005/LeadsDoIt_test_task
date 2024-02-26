@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class SlowBuff : Buff
 {
     public override BuffId buffid => BuffId.Slow;

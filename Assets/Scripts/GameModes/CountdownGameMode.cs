@@ -1,18 +1,16 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class CountdownGameMode : MonoBehaviour, IGameMode
 {
-    [SerializeField] TextMeshProUGUI text;
-    [SerializeField] CarMoveController carMove;
-    [SerializeField] CarCoins coins;
-    [SerializeField] CarHP carHp;
-    [SerializeField] CarBuffs buffs;
-    [SerializeField] GameplayObjectPool pool;
-    [SerializeField] EnemyController enemyController;
+    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private CarMoveController carMove;
+    [SerializeField] private CarCoins coins;
+    [SerializeField] private CarHP carHp;
+    [SerializeField] private CarBuffs buffs;
+    [SerializeField] private GameplayObjectPool pool;
+    [SerializeField] private EnemyController enemyController;
 
     public void Init()
     {
@@ -21,7 +19,6 @@ public class CountdownGameMode : MonoBehaviour, IGameMode
 
     public void OnFinish()
     {
-        
     }
 
     public void OnStart()

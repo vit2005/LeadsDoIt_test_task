@@ -1,23 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum ObjectType
 {
     Slow,
     Block,
-    
+
     Coins,
     Heart,
     Magnet,
     Shield,
     Nitro
-
 }
 
 public abstract class GameplayObject : MonoBehaviour
 {
-
     public abstract bool isPositive { get; }
     public abstract bool hideOnTrigger { get; }
     public abstract ObjectType objectType { get; }

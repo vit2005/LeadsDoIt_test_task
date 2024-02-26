@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,13 +6,12 @@ public interface IUpdatable
     void OnUpdate();
 }
 
-public enum GameModeId 
+public enum GameModeId
 {
     Countdown,
     Gameplay,
     Result,
     Pause,
-
 }
 
 public class GameController : MonoBehaviour
@@ -22,17 +19,17 @@ public class GameController : MonoBehaviour
     private static GameController _instance;
     public static GameController Instance => _instance;
 
-    [SerializeField] CountdownGameMode countdownGameMode;
-    [SerializeField] GameplayGameMode gameplayGameMode;
-    [SerializeField] PauseGameMode pauseGameMode;
-    [SerializeField] ResultGameMode resultGameMode;
+    [SerializeField] private CountdownGameMode countdownGameMode;
+    [SerializeField] private GameplayGameMode gameplayGameMode;
+    [SerializeField] private PauseGameMode pauseGameMode;
+    [SerializeField] private ResultGameMode resultGameMode;
 
-    [SerializeField] SpeedController speedController;
-    [SerializeField] CarMoveController carMoveController;
-    [SerializeField] CarBuffs carBuffs;
-    [SerializeField] CarHP carHP;
-    [SerializeField] GameplayObjectPool pool;
-    [SerializeField] EnemyController enemyController;
+    [SerializeField] private SpeedController speedController;
+    [SerializeField] private CarMoveController carMoveController;
+    [SerializeField] private CarBuffs carBuffs;
+    [SerializeField] private CarHP carHP;
+    [SerializeField] private GameplayObjectPool pool;
+    [SerializeField] private EnemyController enemyController;
 
     public SpeedController SpeedController => speedController;
 

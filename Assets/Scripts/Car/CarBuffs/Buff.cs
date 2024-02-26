@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public enum BuffId
 {
     Slow,
@@ -13,7 +9,7 @@ public enum BuffId
 
 public abstract class Buff
 {
-    protected CarBuffs _buffs; 
+    protected CarBuffs _buffs;
 
     public virtual void Init(CarBuffs buffs) { _buffs = buffs; }
 

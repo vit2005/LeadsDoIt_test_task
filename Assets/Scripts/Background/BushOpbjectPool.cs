@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -46,7 +43,7 @@ public class BushObjectPool : MonoBehaviour
 
     private void OnTakeFromPool(Bush item)
     {
-        bool isRightSide = _spawnRightSide.HasValue? _spawnRightSide.Value : UnityEngine.Random.Range(0, 2) == 0;
+        bool isRightSide = _spawnRightSide.HasValue ? _spawnRightSide.Value : UnityEngine.Random.Range(0, 2) == 0;
         _spawnRightSide = null;
         Vector3 pos = isRightSide ? _rightPos : _leftPos;
         item.isRightSide = isRightSide;

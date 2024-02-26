@@ -1,23 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour, IUpdatable
 {
-    [SerializeField] CarMoveController carMoveController;
-    [SerializeField] Rigidbody2D rb;
-    [SerializeField] GameObject chasingIndicator;
+    [SerializeField] private CarMoveController carMoveController;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private GameObject chasingIndicator;
 
     private Vector3 _initialPosition;
     private float _currentWaitingTime;
     private ChasingPhase _phase = ChasingPhase.Waiting;
 
-    private const float WAITING_TIME = 10f;
+    private const float WAITING_TIME = 60f;
     private const float SPEED_TO_RELEASE = 800f;
     private const float HIT_DAMAGE = 0.15f;
 
-    enum ChasingPhase
+    private enum ChasingPhase
     {
         Waiting,
         InitialHit,
@@ -51,15 +48,18 @@ public class EnemyController : MonoBehaviour, IUpdatable
                     _currentWaitingTime = 0;
                 }
                 break;
+
             case ChasingPhase.InitialHit:
                 rb.AddForce(dirToTarget);
                 break;
+
             case ChasingPhase.Releasing:
                 if (dirToTarget.magnitude > 2f) _phase = ChasingPhase.Chacing;
                 else rb.AddForce(dirToInitial * 0.1f);
                 break;
+
             case ChasingPhase.Chacing:
-                rb.AddForce(dirToTarget * (1000f - SpeedController.speed)/1000f);
+                rb.AddForce(dirToTarget * (1000f - SpeedController.speed) / 1000f);
                 break;
         }
 

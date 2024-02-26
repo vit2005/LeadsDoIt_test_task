@@ -1,10 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CarHP : MonoBehaviour, IUpdatable
 {
+    public bool isDamaging = false;
+    public bool isShielded = false;
+
+    private const float DAMAGE_TICK_DAMAGE = 0.05f;
+    private const float DAMAGE_TICK_DURATION = 1f;
+
     private float _hp = 1;
+    private float _lastDamageTime = 0;
+
+    [SerializeField] private BarsController barsController;
+
     public float HP
     {
         get
@@ -20,22 +28,14 @@ public class CarHP : MonoBehaviour, IUpdatable
         }
     }
 
-    [SerializeField] private BarsController barsController;
-
-    public bool isShielded = false;
-    public bool isDamaging = false;
-    private float lastDamageTime = 0;
-    private const float DAMAGE_TICK_DURATION = 1f;
-    private const float DAMAGE_TICK_DAMAGE = 0.05f;
-
     public void OnUpdate()
     {
         if (isDamaging && !isShielded)
         {
-            if (lastDamageTime < Time.time - DAMAGE_TICK_DURATION)
+            if (_lastDamageTime < Time.time - DAMAGE_TICK_DURATION)
             {
                 HP -= DAMAGE_TICK_DAMAGE;
-                lastDamageTime = Time.time;
+                _lastDamageTime = Time.time;
             }
         }
     }

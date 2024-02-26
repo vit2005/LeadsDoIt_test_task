@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CarHighlight : MonoBehaviour
@@ -8,7 +6,7 @@ public class CarHighlight : MonoBehaviour
     [SerializeField] private GameObject magnet;
     [SerializeField] private GameObject shield;
 
-    public bool SetNitro 
+    public bool SetNitro
     {
         set
         {

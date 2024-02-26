@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CarMoveController : MonoBehaviour, IUpdatable
 {
-    [SerializeField] Transform car;
+    [SerializeField] private Transform car;
 
     private float horizontalAcceleration = 0;
     private float verticalAcceleration = 0;
+
     public const float HORIZONTAL_MOVING_SPEED_MULTIPLIER = 10f;
     public const float VERTICAL_MOVING_SPEED_MULTIPLIER = 1f;
     public const float MAX_LEFT = -0.8f;
@@ -76,12 +75,11 @@ public class CarMoveController : MonoBehaviour, IUpdatable
     public void StartHoldingStop()
     {
         if (GameController.Instance.CurrentGameMode != GameModeId.Gameplay) return;
-        verticalAcceleration = -VERTICAL_MOVING_SPEED_MULTIPLIER*3f;
+        verticalAcceleration = -VERTICAL_MOVING_SPEED_MULTIPLIER * 3f;
     }
 
     public void StopHoldingStop()
     {
         verticalAcceleration = 0f;
     }
-
 }

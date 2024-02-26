@@ -1,17 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public interface IPauseHandler
 {
     void Pause();
+
     void UnPause();
 }
 
 public class PauseGameMode : MonoBehaviour, IGameMode
 {
-    [SerializeField] CarBuffs buffs;
-    [SerializeField] SpeedController speedController;
+    [SerializeField] private CarBuffs buffs;
+    [SerializeField] private SpeedController speedController;
 
     public void Init()
     {
